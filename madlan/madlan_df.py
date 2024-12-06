@@ -20,6 +20,10 @@ class MadlanAnalyzer:
             data = pd.read_csv(self.file_path, encoding='utf-8')
             df = data.copy()
             
+            if len(df.columns) == 9:  
+                df.columns = ['link', 'price', 'rooms', 'floor', 
+                              'size', 'adress', 'price_change', 'price_change', 
+                              'exclusive']
             # Check number of columns and assign appropriate column names
             if len(df.columns) == 12:  # No project_name column
                 df.columns = ['link', 'image_src', 'address', 'rooms', 'floor', 
