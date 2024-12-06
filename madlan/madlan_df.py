@@ -22,8 +22,12 @@ class MadlanAnalyzer:
             
             if len(df.columns) == 9:  # No project_name column
                 df.columns = ['link', 'price', 'rooms', 'floor', 
-                              'size', 'adress', 'price_change', 'price_change', 
+                              'size', 'address', 'price_change_1', 'price_change_2', 
                               'exclusive']
+                # Basic cleaning
+                df = df.dropna(how='all')
+                df = df.drop_duplicates()
+                df = df.reset_index(drop=True)
             # Check number of columns and assign appropriate column names
             if len(df.columns) == 12:  # No project_name column
                 df.columns = ['link', 'image_src', 'address', 'rooms', 'floor', 
