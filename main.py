@@ -155,7 +155,7 @@ def analysis_page():
                 styled_df,
                 column_config={
                     "link": st.column_config.LinkColumn(
-                        "לינק",
+                        "��ינק",
                         help="Click to open link",
                         display_text="Link"),
                     "price": st.column_config.TextColumn("מחיר"),
@@ -178,7 +178,7 @@ def analysis_page():
                 'info':'פרטים',
                 'price_change':'שינויי מחיר',
                 'more_info_1':'מידע נוסף 1',
-                'more_info_2':'מידע נוסף 2',
+                'more_info_2':'מיד�� נוסף 2',
                 'address': 'כתובת',
                 'rooms': 'חדרים',
                 'floor': 'קומה',
@@ -395,8 +395,8 @@ def analysis_page():
             same_address,
             column_config={
                 "Link": st.column_config.LinkColumn("Link", display_text="Link"),
-                "Address": st.column_config.TextColumn("Address"),
-                "Price": st.column_config.TextColumn("Price")
+                "Address": st.column_config.TextColumn("כתובת מלאה"),
+                "Price": st.column_config.TextColumn("מחיר")
             },
             hide_index=True
         )
@@ -417,8 +417,13 @@ def analysis_page():
         st.dataframe(
             same_street,
             column_config={
-                "Link": st.column_config.LinkColumn("Link", display_text="Link")
-            }
+                "Link": st.column_config.LinkColumn("Link", display_text="Link"),
+                "Street": st.column_config.TextColumn("רחוב"),
+                "Full Address": st.column_config.TextColumn("כתובת מלאה"),
+                "Price": st.column_config.TextColumn("מחיר"),
+                "Properties on Street": st.column_config.NumberColumn("מספר נכסים ברחוב")
+            },
+            hide_index=True
         )
         
         # Add horizontal statistics
